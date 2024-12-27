@@ -1,0 +1,9 @@
+name: Test
+description: Test
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        npm i
+        npm test
+        echo "TEST Finished!!!"

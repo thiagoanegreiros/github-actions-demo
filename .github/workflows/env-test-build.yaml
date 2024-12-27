@@ -1,0 +1,20 @@
+name: Build and Push Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    uses: ./.github/workflows/common-build.yaml
+    with:
+      environment: "dev"
+      docker_image_name: "my-app"
+      test_directory: "tests"
+      run_tests_job: "true"
+      build_job: "true"
+      push_job: "false"
+    secrets:
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}

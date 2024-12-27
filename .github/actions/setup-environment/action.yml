@@ -1,0 +1,12 @@
+name: Setup Environment
+description: Set up environment variables
+inputs:
+  environment:
+    description: The environment to configure (e.g., production, staging)
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        echo "ENVIRONMENT=${{ inputs.environment }}" >> $GITHUB_ENV
+        echo "XAZAAAAAAN ${{ inputs.environment }}!!!"
